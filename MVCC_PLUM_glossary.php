@@ -43,6 +43,11 @@
         margin-right: 5px;
       }
 
+      .arrow
+      {
+        font-size: 16px;
+      }
+
       .search
       {
         margin: 20px;
@@ -64,13 +69,17 @@
       {
         font-size: 12px;
         float: right;
-        margin-top: 5px;
         text-decoration: none;
       }
 
       .term
       {
         margin-right: 20px;
+      }
+
+      .definition
+      {
+
       }
 
       .totd
@@ -80,9 +89,24 @@
         margin: 20px;
       }
 
-      .definition
+      .totd h2
       {
+        font-size: 18px;
+        text-align: center;
+      }
 
+      .totd .term
+      {
+        display: block;
+        font-size: 24px;
+        text-align: center;
+      }
+
+      .totd .definition
+      {
+        display: block;
+        text-align: justify;
+        margin: 10px 20px 0 20px;
       }
     </style>
   </head>
@@ -216,9 +240,10 @@
         // Simple version: divide days by length and return remainder.
         let termOfTheDay = glossary[randomizer%glossary.length];
 
-        contentHTML += "<div class='totd'><h2>Term of the Day</h2>";
+        contentHTML += "<div class='totd'><h2>📅 Term of the Day</h2>";
         contentHTML += printFromJSON(termOfTheDay);
         contentHTML += "</div>";
+
 
         // Sections
         // Initialize section letter.
@@ -239,7 +264,7 @@
             glossarychar = letterCaps;
 
             // If different, write section letter to top of new section.
-            contentHTML += "<div><a class='top' href='#top'>Top ↑</a> <h3 class='alphaindex' id='" + glossarychar + "'>" + glossarychar + "</h3></div>";
+            contentHTML += "<div><a class='top' href='#top'>Top <span class='arrow'>↑</span></a> <h3 class='alphaindex' id='" + glossarychar + "'>" + glossarychar + "</h3></div>";
           }
 
           contentHTML += printFromJSON(entry);
